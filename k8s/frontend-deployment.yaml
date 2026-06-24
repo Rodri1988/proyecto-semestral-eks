@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tienda-frontend
+  namespace: tienda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tienda-frontend
+  template:
+    metadata:
+      labels:
+        app: tienda-frontend
+    spec:
+      containers:
+      - name: tienda-frontend
+        image: 870229276099.dkr.ecr.us-east-1.amazonaws.com/tienda-frontend:eks-v3
+        ports:
+        - containerPort: 80
